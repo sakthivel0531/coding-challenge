@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Loan.DTO.ViewModels
+﻿namespace Loan.DTO.ViewModels
 {
+    /// <summary>
+    /// Loan details view model.
+    /// </summary>
     public class LoanDetailsViewModel : LoanViewModel
     {
         public decimal Balance { get; set; }

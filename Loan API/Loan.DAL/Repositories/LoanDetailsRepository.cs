@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Loan.DAL.Repositories
 {
+    /// <summary>
+    /// Get loan and it's details.
+    /// </summary>
     public class LoanDetailsRepository : ILoanDetailsRepository
     {
         private readonly IConfiguration _config;
@@ -19,22 +22,29 @@ namespace Loan.DAL.Repositories
             this._config = config;
         }
 
+        /// <summary>
+        /// Select all loan and it's details.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<LoanDetailsViewModel>> SelectAll()
         {
             using (IDbConnection connection = Connection)
             {
                 StringBuilder query = new StringBuilder();
                 query.Append("Select Loan.LoanId, Number as LoanNumber, Name as LoanName,");
-                query.Append("Balance, BalanceWithInterest, RepaymentFee");
-                query.Append("From Loan");
-                query.Append("inner join LoanDetail");
-                query.Append("on Loan.LoanId = LoanDetail.LoanId");
+                query.Append("Balance, BalanceWithInterest, RepaymentFee ");
+                query.Append("From Loan ");
+                query.Append("inner join LoanDetail ");
+                query.Append("on Loan.LoanId = LoanDetail.LoanId ");
                 connection.Open();
                 var result = await connection.QueryAsync<LoanDetailsViewModel>(query.ToString());
                 return result.ToList();
             }
         }
 
+        /// <summary>
+        /// Get connection.
+        /// </summary>
         private IDbConnection Connection
         {
             get

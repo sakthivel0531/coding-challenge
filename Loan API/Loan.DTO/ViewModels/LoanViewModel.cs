@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Loan.DTO.ViewModels
+﻿namespace Loan.DTO.ViewModels
 {
+    /// <summary>
+    /// Loan view model.
+    /// </summary>
     public class LoanViewModel
     {
         public int LoanId { get; set; }

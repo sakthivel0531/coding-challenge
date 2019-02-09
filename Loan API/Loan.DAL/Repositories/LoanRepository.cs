@@ -4,11 +4,14 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Loan.DAL.Repositories
 {
+    /// <summary>
+    /// Get loan details.
+    /// </summary>
     public class LoanRepository : ILoanRepository
     {
         private readonly IConfiguration _config;
@@ -18,6 +21,10 @@ namespace Loan.DAL.Repositories
             this._config = config;
         }
 
+        /// <summary>
+        /// Get all loan details.
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<LoanViewModel>> SelectAll()
         {
             using (IDbConnection connection = Connection)
@@ -29,6 +36,9 @@ namespace Loan.DAL.Repositories
             }
         }
 
+        /// <summary>
+        /// Get connection.
+        /// </summary>
         private IDbConnection Connection
         {
             get
