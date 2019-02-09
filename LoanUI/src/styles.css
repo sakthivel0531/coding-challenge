@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.page-margin{
+    padding-left: 5rem;
+}
+hr{
+    border-top: 3px solid rgba(0,0,0,.1) !important;
+}
+
+body { 
+    background: lightgrey !important; 
+} 
