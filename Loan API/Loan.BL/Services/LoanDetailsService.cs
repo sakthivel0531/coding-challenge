@@ -21,9 +21,9 @@ namespace Loan.BL
         /// Get all loan details.
         /// </summary>
         /// <returns></returns>
-        public async Task<List<LoanDetailsViewModel>> GetAllLoanDetails()
+        public List<LoanDetailsViewModel> GetAllLoanDetails()
         {
-            return await this._loanDetailsRepository.SelectAll();
+            return this._loanDetailsRepository.SelectAll();
         }
     }
 }

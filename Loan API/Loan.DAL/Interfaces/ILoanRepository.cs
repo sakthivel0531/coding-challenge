@@ -6,6 +6,6 @@ namespace Loan.DAL.Repositories
 {
     public interface ILoanRepository
     {
-        Task<List<LoanViewModel>> SelectAll();
+        List<LoanViewModel> SelectAll();
     }
 }

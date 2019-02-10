@@ -8,5 +8,6 @@
         public decimal Balance { get; set; }
         public decimal BalanceWithInterest { get; set; }
         public decimal RepaymentFee { get; set; }
+        public decimal PayoutCarryOverAmount { get; set; }
     }
 }

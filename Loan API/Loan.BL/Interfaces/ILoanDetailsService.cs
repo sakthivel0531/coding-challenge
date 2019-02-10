@@ -6,6 +6,6 @@ namespace Loan.BL
 {
     public interface ILoanDetailsService
     {
-        Task<List<LoanDetailsViewModel>> GetAllLoanDetails();
+        List<LoanDetailsViewModel> GetAllLoanDetails();
     }
 }

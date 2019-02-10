@@ -1,4 +1,5 @@
 ﻿using Loan.BL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ namespace Loan.API.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class LoanController : Controller
     {
         private readonly ILoanDetailsService _loanDetailsService;
@@ -26,11 +28,12 @@ namespace Loan.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("GetAllLoanDetails")]
-        public async Task<IActionResult> GetAllLoanDetails()
+        public IActionResult GetAllLoanDetails()
         {
             try
             {
-                return Ok(await this._loanDetailsService.GetAllLoanDetails());
+                var result = this._loanDetailsService.GetAllLoanDetails();
+                return Ok(result);
             }
             catch(Exception ex)
             {

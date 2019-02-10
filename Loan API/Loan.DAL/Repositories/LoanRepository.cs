@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Loan.DAL.Repositories
 {
@@ -25,13 +24,13 @@ namespace Loan.DAL.Repositories
         /// Get all loan details.
         /// </summary>
         /// <returns></returns>
-        public async Task<List<LoanViewModel>> SelectAll()
+        public List<LoanViewModel> SelectAll()
         {
             using (IDbConnection connection = Connection)
             {
                 string query = "SELECT LoanId, Name as LoanName, Number as LoanNumber FROM Loan";
                 connection.Open();
-                var result = await connection.QueryAsync<LoanViewModel>(query);
+                var result = connection.Query<LoanViewModel>(query);
                 return result.ToList();
             }
         }

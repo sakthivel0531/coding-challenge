@@ -26,18 +26,18 @@ namespace Loan.DAL.Repositories
         /// Select all loan and it's details.
         /// </summary>
         /// <returns></returns>
-        public async Task<List<LoanDetailsViewModel>> SelectAll()
+        public List<LoanDetailsViewModel> SelectAll()
         {
             using (IDbConnection connection = Connection)
             {
                 StringBuilder query = new StringBuilder();
                 query.Append("Select Loan.LoanId, Number as LoanNumber, Name as LoanName,");
-                query.Append("Balance, BalanceWithInterest, RepaymentFee ");
+                query.Append("Balance, BalanceWithInterest, RepaymentFee, (Balance + BalanceWithInterest + RepaymentFee) as PayoutCarryOverAmount ");
                 query.Append("From Loan ");
                 query.Append("inner join LoanDetail ");
                 query.Append("on Loan.LoanId = LoanDetail.LoanId ");
                 connection.Open();
-                var result = await connection.QueryAsync<LoanDetailsViewModel>(query.ToString());
+                var result = connection.Query<LoanDetailsViewModel>(query.ToString());
                 return result.ToList();
             }
         }
