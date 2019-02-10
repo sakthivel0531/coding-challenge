@@ -1,6 +1,6 @@
 <div class="col-12 border grey-bg-color">
   <div class="row pt-1 pb-1">
-    <span class="bold pl-2 font-weight-bold">1.Test #1234</span>
+    <span class="bold pl-2 font-weight-bold">{{ serialNo }}.{{ LoanDetail.loanName }} # {{ LoanDetail.loanNumber }} </span>
   </div>
 </div>
 <div class="col-12 border">
@@ -9,20 +9,20 @@
         <span>Balance</span>
     </div>
     <div class="col-2 ">
-        <span>$1,2345</span>
+        <span>{{ LoanDetail.balance | currency }}</span>
     </div>
     <div class="col-3">
-        <input type="checkbox" name="topUp" value="Bike"> Top Up<br>
+        <input type="checkbox" [name]="topUp" [(ngModel)]="topUpValue" (change)="topUpChange($event)">Top Up<br>
     </div>
   </div>
 </div>
-<div class="col-12 border">
+<div class="col-12 border" *ngIf="topUpValue">
   <div class="row pb-1">
     <div class="col-4">
       Balance includes interest of
     </div>
     <div class="col-2 ">
-        <span>$1,2345</span>
+        <span>{{ LoanDetail.balanceWithInterest | currency }}</span>
     </div>
     <div class="col-3">
 
@@ -33,7 +33,7 @@
       Early repayment fee
     </div>
     <div class="col-2 ">
-        <span>$1,2345</span>
+        <span>{{ LoanDetail.repaymentFee | currency }}</span>
     </div>
     <div class="col-3">
 
@@ -44,7 +44,7 @@
       Payout / Carryover amount
     </div>
     <div class="col-2 ">
-        <span class="font-weight-bold">$1,2345</span>
+        <span class="font-weight-bold">{{ LoanDetail.payoutCarryOverAmount | currency }}</span>
     </div>
     <div class="col-3">
       <span>This amount will be carried over</span>

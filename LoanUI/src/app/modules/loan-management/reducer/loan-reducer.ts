@@ -5,12 +5,9 @@ export function rootReducer(state, action) {
         case LoanActions.addNewLoan:
             return Object.assign({}, state, {});
         case LoanActions.getLoanDetails:
-            console.log('i am here');
-            console.log(state);
-            console.log(action.todo);
             return Object.assign({}, state, {
-                loanDetailList: action.loanDetailList,
-                totalLoan: state.loanDetailList.length
+                loanDetailList: action.todo,
+                totalLoan: action.todo.length
             });
     }
 }

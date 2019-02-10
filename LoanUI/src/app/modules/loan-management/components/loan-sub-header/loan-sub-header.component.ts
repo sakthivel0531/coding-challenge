@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { select, NgRedux } from '@angular-redux/store';
+import { ILoanState } from 'coding-challenge/LoanUI/src/app/modules/loan-management/store/loan-store';
 
 @Component({
   selector: 'app-loan-sub-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanSubHeaderComponent implements OnInit {
 
-  constructor() { }
+  @select('totalLoan') totalLoan;
+  @select('loanDetailList') loanDetailList;
+
+  constructor(private ngRedux: NgRedux<(ILoanState)>) {
+
+  }
 
   ngOnInit() {
+
   }
 
 }
