@@ -7,6 +7,11 @@ import { LoanHeaderComponent } from './modules/loan-management/components/loan-h
 import { LoanSubHeaderComponent } from './modules/loan-management/components/loan-sub-header/loan-sub-header.component';
 import { LoanDetailsComponent } from './modules/loan-management/components/loan-details/loan-details.component';
 import { RouterModule } from '@angular/router';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { ILoanState, INITIAL_LOAN_STATE } from './modules/loan-management/store/loan-store';
+import { rootReducer } from './modules/loan-management/reducer/loan-reducer';
+import { HttpClientModule } from '@angular/common/http';
+import { LoanService } from './modules/loan-management/services/loan.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +36,16 @@ import { RouterModule } from '@angular/router';
     ),
     BrowserModule,
     AppRoutingModule,
+    NgReduxModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoanService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<ILoanState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_LOAN_STATE);
+  }
+}
