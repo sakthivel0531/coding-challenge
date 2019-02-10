@@ -7,7 +7,22 @@ export function rootReducer(state, action) {
         case LoanActions.getLoanDetails:
             return Object.assign({}, state, {
                 loanDetailList: action.todo,
-                totalLoan: action.todo.length
+                totalLoan: action.todo.length,
+                totalPayoutCarryOverAmount: 0
+            });
+        case LoanActions.addPayoutCarryOverAmount:
+            let newTotalPayoutCarryOverAmount = state.totalPayoutCarryOverAmount + action.todo;
+            console.log(state);
+            console.log(action);
+            return Object.assign({}, state, {
+                totalPayoutCarryOverAmount: newTotalPayoutCarryOverAmount
+            });
+        case LoanActions.minusPayoutCarryOverAmount:
+            newTotalPayoutCarryOverAmount = state.totalPayoutCarryOverAmount - action.todo;
+            console.log(state);
+            console.log(action);
+            return Object.assign({}, state, {
+                totalPayoutCarryOverAmount: newTotalPayoutCarryOverAmount
             });
     }
 }

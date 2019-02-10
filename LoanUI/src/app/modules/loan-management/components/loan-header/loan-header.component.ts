@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux } from '@angular-redux/store';
+import { NgRedux, select } from '@angular-redux/store';
 import { ILoanState } from '../../store/loan-store';
 import { LoanService } from '../../services/loan.service';
 import { LoanActions } from '../../action/loan-action';
@@ -11,7 +11,7 @@ import { ILoanDetailsModel } from '../../models/loan-model';
   styleUrls: ['./loan-header.component.css']
 })
 export class LoanHeaderComponent implements OnInit {
-
+  @select('totalPayoutCarryOverAmount') totalPayoutCarryOverAmount;
   private loanDetailList: ILoanDetailsModel[];
 
   constructor(private ngRedux: NgRedux<ILoanState>,
@@ -19,6 +19,7 @@ export class LoanHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('ngOnInit');
     this.loanService.getLoanDetails()
       .subscribe(result => {
         this.loanDetailList = result;

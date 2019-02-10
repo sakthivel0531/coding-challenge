@@ -8,6 +8,7 @@ import { map, catchError } from 'rxjs/operators';
 export class LoanService {
 
     constructor(private http: HttpClient) {
+        
     }
 
     public getLoanDetails(): Observable<ILoanDetailsModel[]> {
