@@ -23,7 +23,6 @@ export class LoanDetailsComponent implements OnInit {
   }
 
   topUpChange(event) {
-    console.log(this.LoanDetail.payoutCarryOverAmount);
     if (event.target.checked) {
       this.ngRedux.dispatch({ type: LoanActions.addPayoutCarryOverAmount, todo: this.LoanDetail.payoutCarryOverAmount });
     } else {

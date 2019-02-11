@@ -13,6 +13,7 @@ import { rootReducer } from './modules/loan-management/reducer/loan-reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { LoanService } from './modules/loan-management/services/loan.service';
 import { FormsModule } from '@angular/forms';
+import { ConfigService } from './modules/shared/service/config.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    LoanService
+    LoanService,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })

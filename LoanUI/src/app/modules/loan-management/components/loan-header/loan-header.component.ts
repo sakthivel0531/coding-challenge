@@ -24,7 +24,6 @@ export class LoanHeaderComponent implements OnInit {
     this.loanService.getLoanDetails()
       .subscribe(result => {
         this.loanDetailList = result;
-        console.log(this.loanDetailList);
         this.ngRedux.dispatch({ type: LoanActions.getLoanDetails, todo: this.loanDetailList });
       });
   }

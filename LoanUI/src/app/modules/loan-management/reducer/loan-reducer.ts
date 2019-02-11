@@ -12,15 +12,11 @@ export function rootReducer(state, action) {
             });
         case LoanActions.addPayoutCarryOverAmount:
             let newTotalPayoutCarryOverAmount = state.totalPayoutCarryOverAmount + action.todo;
-            console.log(state);
-            console.log(action);
             return Object.assign({}, state, {
                 totalPayoutCarryOverAmount: newTotalPayoutCarryOverAmount
             });
         case LoanActions.minusPayoutCarryOverAmount:
             newTotalPayoutCarryOverAmount = state.totalPayoutCarryOverAmount - action.todo;
-            console.log(state);
-            console.log(action);
             return Object.assign({}, state, {
                 totalPayoutCarryOverAmount: newTotalPayoutCarryOverAmount
             });

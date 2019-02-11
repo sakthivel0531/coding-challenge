@@ -2,17 +2,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { ILoanDetailsModel } from '../models/loan-model';
-import { map, catchError } from 'rxjs/operators';
+import { ConfigService } from '../../shared/service/config.service';
 
 @Injectable()
 export class LoanService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+                private configService: ConfigService) {
     }
 
     public getLoanDetails(): Observable<ILoanDetailsModel[]> {
-        const url = 'http://localhost:5000/api/loan/GetAllLoanDetails';
-        const result = this.http.get<ILoanDetailsModel[]>(url);
+        // const apiUrl = this.configService.getApiUrl(); // For some reason this approach doesn't work, hence, hardcoding it.
+        const apiUrl = 'http://localhost:5000/api/loan/GetAllLoanDetails';
+        const result = this.http.get<ILoanDetailsModel[]>(apiUrl);
         return result;
     }
 }
