@@ -11,17 +11,15 @@ import { LoanActions } from 'coding-challenge/LoanUI/src/app/modules/loan-manage
 })
 export class LoanDetailsComponent implements OnInit {
   @Input() LoanDetail: ILoanDetailsModel;
-  serialNo = 0;
+  @Input() SerialNo: number;
   topUpValue = false;
   payoutCarryOverAmountElement: number;
-
 
   constructor(private ngRedux: NgRedux<ILoanState>) {
   }
 
-
   ngOnInit() {
-    this.serialNo = this.serialNo + 1;
+
   }
 
   topUpChange(event) {

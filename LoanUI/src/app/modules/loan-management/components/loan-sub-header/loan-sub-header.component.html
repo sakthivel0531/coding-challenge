@@ -3,15 +3,15 @@
     <div class="col-9">
       <span> You have {{ totalLoan | async }} Personal Loans</span>
     </div>
-    <div class="col-lg-3" style="background-color: lightgray" *ngIf='(totalLoan | async ) == maxNumberOfLoans'   >
+    <div class="col-lg-3" style="background-color: lightgray" *ngIf='(totalLoan | async ) == maxNumberOfLoans'>
       With 3 or more current Personal Loans, a new Lon application is not possible in this flow.
     </div>
   </div>
 </div>
 <div class="container-fluid">
-  <div class="row page-margin mt-5" *ngFor="let loanDetail of loanDetailList | async">
+  <div class="row page-margin mt-5" *ngFor="let loanDetail of (loanDetailList | async); let i=index">
     <div class="col-9">
-      <app-loan-details [LoanDetail]='loanDetail'></app-loan-details>
+      <app-loan-details [LoanDetail]='loanDetail' [SerialNo]='i + 1'></app-loan-details>
     </div>
   </div>
 </div>
