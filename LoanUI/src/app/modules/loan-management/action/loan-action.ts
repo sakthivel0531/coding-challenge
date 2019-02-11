@@ -4,3 +4,7 @@ export class LoanActions {
     public static addPayoutCarryOverAmount = 'AddPayoutCarryOverAmount';
     public static minusPayoutCarryOverAmount = 'MinusPayoutCarryOverAmount';
 }
+
+export class LoanSettings {
+    public static maxNumberOfLoans = 3;
+}

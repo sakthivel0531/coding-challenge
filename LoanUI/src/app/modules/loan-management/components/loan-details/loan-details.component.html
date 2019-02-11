@@ -8,10 +8,10 @@
     <div class="col-4">
         <span>Balance</span>
     </div>
-    <div class="col-2 ">
+    <div class="col-lg-2 ">
         <span>{{ LoanDetail.balance | currency }}</span>
     </div>
-    <div class="col-3">
+    <div class="col-lg-3">
         <input type="checkbox" [name]="topUp" [(ngModel)]="topUpValue" (change)="topUpChange($event)">Top Up<br>
     </div>
   </div>
@@ -21,10 +21,10 @@
     <div class="col-4">
       Balance includes interest of
     </div>
-    <div class="col-2 ">
+    <div class="col-lg-2">
         <span>{{ LoanDetail.balanceWithInterest | currency }}</span>
     </div>
-    <div class="col-3">
+    <div class="col-lg-3">
 
     </div>
   </div>
@@ -32,10 +32,10 @@
     <div class="col-4">
       Early repayment fee
     </div>
-    <div class="col-2 ">
+    <div class="col-lg-2">
         <span>{{ LoanDetail.repaymentFee | currency }}</span>
     </div>
-    <div class="col-3">
+    <div class="col-lg-3">
 
     </div>
   </div>
@@ -43,10 +43,10 @@
     <div class="col-4">
       Payout / Carryover amount
     </div>
-    <div class="col-2 ">
+    <div class="col-lg-2">
         <span class="font-weight-bold">{{ LoanDetail.payoutCarryOverAmount | currency }}</span>
     </div>
-    <div class="col-3">
+    <div class="col-2 col-lg-3">
       <span>This amount will be carried over</span>
     </div>
   </div>
