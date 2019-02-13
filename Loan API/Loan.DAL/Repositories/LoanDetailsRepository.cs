@@ -16,10 +16,16 @@ namespace Loan.DAL.Repositories
     public class LoanDetailsRepository : ILoanDetailsRepository
     {
         private readonly IConfiguration _config;
+        private readonly string _connectionString;
 
         public LoanDetailsRepository(IConfiguration config)
         {
             this._config = config;
+        }
+
+        public LoanDetailsRepository(string connectionString)
+        {
+            this._connectionString = connectionString;
         }
 
         /// <summary>
@@ -49,7 +55,15 @@ namespace Loan.DAL.Repositories
         {
             get
             {
-                return new SqlConnection(_config.GetConnectionString("LoanDBConnectionString"));
+                if (_config != null)
+                {
+                    return new SqlConnection(_config.GetConnectionString("LoanDBConnectionString"));
+                }
+                else
+                {
+                    return new SqlConnection(_connectionString);
+                }
+
             }
         }
 

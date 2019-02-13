@@ -7,9 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="nunit" Version="3.10.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Loan.API\Loan.API.csproj" />
+    <ProjectReference Include="..\Loan.BL\Loan.BL.csproj" />
+    <ProjectReference Include="..\Loan.DAL\Loan.DAL.csproj" />
+    <ProjectReference Include="..\Loan.DTO\Loan.DTO.csproj" />
   </ItemGroup>
 
 </Project>
