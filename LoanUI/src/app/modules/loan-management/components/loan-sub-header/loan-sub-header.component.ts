@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
-import { ILoanState } from 'coding-challenge/LoanUI/src/app/modules/loan-management/store/loan-store';
 import { LoanSettings } from '../../action/loan-action';
+import { ILoanState } from '../../store/loan-store';
 
 @Component({
   selector: 'app-loan-sub-header',
