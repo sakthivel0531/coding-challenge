@@ -30,15 +30,9 @@ namespace Loan.API.Controllers
         [Route("GetAllLoanDetails")]
         public IActionResult GetAllLoanDetails()
         {
-            try
-            {
-                var result = this._loanDetailsService.GetAllLoanDetails();
-                return Ok(result);
-            }
-            catch(Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+
+            var result = this._loanDetailsService.GetAllLoanDetails();
+            return Ok(result);
         }
     }
 }

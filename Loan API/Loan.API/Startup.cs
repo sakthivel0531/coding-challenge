@@ -1,4 +1,5 @@
-﻿using Loan.BL;
+﻿using Loan.API.Filters;
+using Loan.BL;
 using Loan.DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,7 +21,11 @@ namespace Loan.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(
+        config =>
+        {
+            config.Filters.Add(typeof(CustomExceptionFilter));
+        }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<ILoanDetailsService, LoanDetailsService>();
             services.AddTransient<ILoanDetailsRepository, LoanDetailsRepository>();
         }
