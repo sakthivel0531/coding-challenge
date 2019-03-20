@@ -8,6 +8,7 @@ namespace Loan.API
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            // this is for testing.
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
